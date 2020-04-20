@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TO-do's list</title>
+    <style>
+        .container{
+            margin: 30px;
+        }
+        .btn-submit {
+            background: #4CAF50;
+            border: aliceblue;
+            height: 29px;
+            width: 88px;
+            border-radius: 4px;
+        }
+        .input-st{
+            height: 25px;
+            width: 200px;
+        }
+        .container3{
+            color: black;
+            display: inline;
+            
+        }
+        .container4{
+            color: seagreen ;
+        }
+
+        .a-row{
+            display: none;
+            margin-left: 80%;}
+
+        .done-btn{
+            color: seagreen;
+        }
+        .delete-btn{
+            color: darkred;
+        }
+
+        .row:hover .a-row{display: inline; text-decoration:underline;}
+
+        .row:hover  .new1{ border: 1.5px solid;}
+        
+        .row {
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<div class="container">
+<h1>To-do's List</h1>
+<form name="register">
+    <input class="input-st" type="text" name="New task" value="" placeholder="New task....">
+    <button class="btn-submit" type="button">Add To list</button>
+
+</form>
+</div>
+<div class="container2">
+    <ul style="list-style-type: none;" class="ul-tab">
+   <div class="row">
+        <li class="container3">Learn Html</li>
+
+       <div class="a-row">
+
+           <a href="#" class="done-btn">Mark as Done |</a>
+           <a href="#" class="delete-btn">Delete</a>
+       </div>
+
+        
+
+        </div>
+
+        <div class="row">
+            <li class="container3">Learn Css</li>
+
+            <div class="a-row">
+
+                <a href="#" class="done-btn">Mark as Done |</a>
+                <a href="#" class="delete-btn">Delete</a>
+            </div>
+
+           
+
+        </div>
+
+        <div class="row">
+            <li class="container3">Learn Javascript</li>
+
+            <div class="a-row">
+
+                <a href="#" class="done-btn">Mark as Done |</a>
+                <a href="#" class="delete-btn">Delete</a>
+            </div>
+
+            
+
+        </div>
+
+        <div class="row">
+            <li class="container3">Learn Php</li>
+
+            <div class="a-row">
+
+                <a href="#" class="done-btn">Mark as Done |</a>
+                <a href="#" class="delete-btn">Delete</a>
+            </div>
+
+            
+
+        </div>
+
+    </ul>
+
+</div>
+
+<script>
+        $(".btn-submit").on("click",function(){
+            var valueofinput= $('.input-st').val();
+
+            $('.ul-tab').append('<div class="row">\n' +
+                '            <li class="container3">'+valueofinput+'</li>\n' +
+                '\n' +
+                '            <div class="a-row">\n' +
+                '\n' +
+                '                <a href="#" class="done-btn">Mark as Done |</a>\n' +
+                '                <a href="#" class="delete-btn">Delete</a>\n' +
+                '            </div>\n' +
+                '\n' +
+                '        </div>')
+
+            $('.input-st').val('');
+
+        });
+
+        $(document).on("click",'.delete-btn',function () {
+            $(this).parent().parent().empty()             
+
+        });
+
+        $(document).on("click",'.done-btn',function () {
+            $(this).parent().parent().children('li').css({'color':'green'});
+            $(this).parent().empty()
+        });
+
+
+
+
+</script>
+
+
+</body>
+</html>
